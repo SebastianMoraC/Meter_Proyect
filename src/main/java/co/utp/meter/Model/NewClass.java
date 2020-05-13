@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package co.utp.meter.Model;
 
 /**
  *
  * @author Sebastian
  */
-public class Ejemplo {
-    public static void main(String[] args) {
-        System.out.println("eed");
-        
-    }
+public class NewClass {
+    
 }
