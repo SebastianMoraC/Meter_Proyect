@@ -1,5 +1,7 @@
 package co.utp.meter;
 
+import co.utp.meter.Model.Meter_Model;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,7 +14,9 @@ package co.utp.meter;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("eed");
+       Meter_Model read = new Meter_Model(); //Create model Object
+       read.readFile(); 
+       
         
     }
 }
