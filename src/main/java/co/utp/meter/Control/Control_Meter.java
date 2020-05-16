@@ -1,14 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.utp.meter.Control;
 
-/**
- *
- * @author Sebastian
- */
+import co.utp.meter.Model.Meter_Model;
+import co.utp.meter.View.Meter_View;
+
 public class Control_Meter {
+    private static Control_Meter instance = null;
+    private final Meter_View view;
+    private Meter_Model model;
     
+    private Control_Meter(){
+        this.view = Meter_View.setInstance();
+    }
+    private  static void createInstance()
+    {
+        if(instance==null)
+        {
+            synchronized(Control_Meter.class){
+                if(instance==null) instance= new Control_Meter();
+            }
+        }
+    }
+    public static Control_Meter getInstance() 
+    {
+        return instance;
+    }
+    public static Control_Meter setInstance() 
+    {
+        if(instance == null) {
+            createInstance();
+            getInstance();
+        }
+        return getInstance();
+    }
+    public void build(){
+        this.view.init();
+    }
+    
+    public void render(){
+        this.view.render();
+    }
 }
