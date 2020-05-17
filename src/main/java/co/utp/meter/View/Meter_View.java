@@ -85,7 +85,4 @@ public class Meter_View extends JFrame{
         
     }
 
-    private void setMaximumSize(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
