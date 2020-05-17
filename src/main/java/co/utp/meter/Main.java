@@ -11,7 +11,6 @@ public class Main {
        
        Control_Meter meter = Control_Meter.setInstance();
        meter.build();
-       meter.render();
         
     }
 }

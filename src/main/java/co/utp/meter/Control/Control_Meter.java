@@ -33,10 +33,7 @@ public class Control_Meter {
         return getInstance();
     }
     public void build(){
-        this.view.init();
+        this.view.startComponents();
     }
-    
-    public void render(){
-        this.view.render();
-    }
+       
 }
