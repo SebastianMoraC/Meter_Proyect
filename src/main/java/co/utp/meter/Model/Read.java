@@ -15,11 +15,11 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author Sebastian
- */
+ */ 
 public class Read {
     
     public void readFile() throws FileNotFoundException, IOException{ //Declarated Exceptions
-        File archivo = new File("E:\\Desktop\\UNIVERSIDAD\\2020 -1\\ejemplo_progra.txt"); //Read file, you have to write here the direction where you have the txt
+        File archivo = new File("D:\\Documents\\NetBeansProjects\\Meter\\ejemplo_progra.txt"); //Read file, you have to write here the direction where you have the txt
         FileReader fr = new FileReader(archivo);
         BufferedReader bf = new BufferedReader(fr);
         String linea;

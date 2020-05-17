@@ -39,4 +39,5 @@ public class Control_Meter {
     public void render(){
         this.view.render();
     }
+   
 }
