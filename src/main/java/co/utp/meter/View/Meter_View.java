@@ -75,8 +75,8 @@ public class Meter_View extends JFrame{
     public void labels(String Stlabel){
         JLabel label = new JLabel(Stlabel,SwingConstants.CENTER);
         label.setOpaque(false);
-        label.setFont(new Font("Franklin Gothic",3,20));
-        label.setBounds(10, 10, 600, 200);
+        label.setFont(new Font("Helvetica",3,40));
+        label.setBounds(30, 20, 600, 200);
         label.setForeground(Color.BLACK);
         panel.add(label);
     }
