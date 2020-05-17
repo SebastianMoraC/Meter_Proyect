@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -48,7 +50,6 @@ public class Meter_View extends JFrame{
         this.setLocationRelativeTo(null); //Centra la ventana en la pantalla
         this.setTitle("WaE Meter Consumption");
         this.setMinimumSize(new Dimension(700,600)); //Set a minimum size to the frame
-        startComponents();
     }
     public void render(){
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -56,11 +57,11 @@ public class Meter_View extends JFrame{
     }
     
      public void startComponents(){
+        init();
         panels();
         buttons();
         render();
         labels("¿Qué consumo deseas saber?"); 
-        init();
                       
     }
      
@@ -81,7 +82,7 @@ public class Meter_View extends JFrame{
     }
     
     public void buttons(){
-        JButton energyButton = new JButton();
+        JButton energyButton = new JButton("energy");
         energyButton.setEnabled(true);
         energyButton.setBounds(100,300,200,200);
         energyButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
@@ -90,7 +91,7 @@ public class Meter_View extends JFrame{
         energyButton.setBackground(Color.lightGray);
         panel.add(energyButton);
         
-        JButton waterButton = new JButton();
+        JButton waterButton = new JButton("agua");
         waterButton.setEnabled(true);
         waterButton.setBounds(400,300,200,200);
         waterButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
@@ -99,6 +100,20 @@ public class Meter_View extends JFrame{
         waterButton.setBackground(Color.lightGray);
         panel.add(waterButton);
                       
+        eventaction(waterButton);
+        eventaction(energyButton);
+
+    }
+    private void eventaction(JButton button){
+        ActionListener actlistener = new ActionListener(){ //But when you go to use a interface you have to instancied acion listener
+            @Override
+            public void actionPerformed(ActionEvent e) {//You have to write hear that you want to happend whe you use the button
+                String nameButton=(button.getActionCommand());
+                System.out.println(nameButton);
+            }
+        };
+        button.addActionListener(actlistener); //Add to act listener to the button
+        
     }
 
 }
