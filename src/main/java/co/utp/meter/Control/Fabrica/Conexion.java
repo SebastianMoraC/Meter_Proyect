@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.utp.meter.View.Fabrica;
+package co.utp.meter.Control.Fabrica;
 
 /**
  *

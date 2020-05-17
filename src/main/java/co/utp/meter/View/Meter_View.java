@@ -1,5 +1,6 @@
 package co.utp.meter.View;
 
+import co.utp.meter.Control.Control_Meter;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -14,6 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
 
 public class Meter_View extends JFrame{
     private static volatile Meter_View instance = null;
@@ -109,11 +111,20 @@ public class Meter_View extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {//You have to write hear that you want to happend whe you use the button
                 String nameButton=(button.getActionCommand());
-                System.out.println(nameButton);
+                Control_Meter control = new Control_Meter();
+                control.secondWindow(nameButton);
             }
         };
         button.addActionListener(actlistener); //Add to act listener to the button
         
+    }
+    public void secondWindow(){
+        ChoseWindow window = new ChoseWindow();
+        window.startComponents();
+    }
+    public void closeWindow(){
+        this.setVisible(false);
+
     }
 
 }
