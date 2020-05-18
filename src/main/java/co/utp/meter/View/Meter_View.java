@@ -63,47 +63,49 @@ public class Meter_View extends JFrame{
         panels();
         buttons();
         render();
-        labels("¿Qué consumo deseas saber?"); 
+        labels("¿Qué tipo de consumo quieres ver?"); 
                       
     }
      
     public void panels(){
         panel = new JPanel();
         panel.setLayout(null);
-        panel.setBackground(Color.LIGHT_GRAY); //Set the color in the panel
+        panel.setBackground(Color.WHITE); //Set the color in the panel
         this.getContentPane().add(panel); //Insert the panel to the frame
 
     }
     public void labels(String Stlabel){
         JLabel label = new JLabel(Stlabel,SwingConstants.CENTER);
         label.setOpaque(false);
-        label.setFont(new Font("Bernard MT Condensed",Font.BOLD,45));
-        label.setBounds(30, 20, 600, 200);
+        label.setFont(new Font("Bernard MT Condensed",Font.BOLD,41));
+        label.setBounds(30,20, 630, 200);
         label.setForeground(Color.BLACK);
         panel.add(label);
     }
     
     public void buttons(){
+        
         JButton energyButton = new JButton("energy");
         energyButton.setEnabled(true);
         energyButton.setBounds(100,300,200,200);
         energyButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
         ImageIcon buttonEnergy = new ImageIcon("electricidad.png"); //Get Image
         energyButton.setIcon(new ImageIcon(buttonEnergy.getImage().getScaledInstance(energyButton.getWidth(), energyButton.getHeight(),Image.SCALE_SMOOTH))); //Insert image in the button with the size of the button 
-        energyButton.setBackground(Color.lightGray);
+        energyButton.setBackground(Color.WHITE);
         panel.add(energyButton);
         
         JButton waterButton = new JButton("agua");
         waterButton.setEnabled(true);
         waterButton.setBounds(400,300,200,200);
         waterButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
-        ImageIcon buttonImage = new ImageIcon("agua.png"); //Get Image
-        waterButton.setIcon(new ImageIcon(buttonImage.getImage().getScaledInstance(waterButton.getWidth(), waterButton.getHeight(),Image.SCALE_SMOOTH))); //Insert image in the button with the size of the button 
-        waterButton.setBackground(Color.lightGray);
+        ImageIcon buttonWater = new ImageIcon("agua.png"); //Get Image
+        waterButton.setIcon(new ImageIcon(buttonWater.getImage().getScaledInstance(waterButton.getWidth(), waterButton.getHeight(),Image.SCALE_SMOOTH))); //Insert image in the button with the size of the button 
+        waterButton.setBackground(Color.WHITE);
         panel.add(waterButton);
                       
         eventaction(waterButton);
         eventaction(energyButton);
+        
 
     }
     private void eventaction(JButton button){

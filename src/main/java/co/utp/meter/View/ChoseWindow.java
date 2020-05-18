@@ -65,45 +65,44 @@ public class ChoseWindow extends JFrame{
         render();
         labels("¿Desea escoger residencia o empresa?"); 
                       
-    }
-     
+    } 
     public void panels(){
         panel = new JPanel();
         panel.setLayout(null);
-        panel.setBackground(Color.LIGHT_GRAY); //Set the color in the panel
+        panel.setBackground(Color.WHITE); //Set the color in the panel
         this.getContentPane().add(panel); //Insert the panel to the frame
 
     }
     public void labels(String Stlabel){
         JLabel label = new JLabel(Stlabel,SwingConstants.CENTER);
         label.setOpaque(false);
-        label.setFont(new Font("Franklin Gothic",3,20));
-        label.setBounds(10, 10, 600, 200);
+        label.setFont(new Font("Bernard MT Condensed",Font.BOLD,35));
+        label.setBounds(25, 10, 600, 200);
         label.setForeground(Color.BLACK);
         panel.add(label);
     }
     
     public void buttons(){
-        JButton energyButton = new JButton("energy");
-        energyButton.setEnabled(true);
-        energyButton.setBounds(100,300,200,200);
-        energyButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
-        ImageIcon buttonEnergy = new ImageIcon("electricidad.png"); //Get Image
-        energyButton.setIcon(new ImageIcon(buttonEnergy.getImage().getScaledInstance(energyButton.getWidth(), energyButton.getHeight(),Image.SCALE_SMOOTH))); //Insert image in the button with the size of the button 
-        energyButton.setBackground(Color.lightGray);
-        panel.add(energyButton);
+        JButton houseButton = new JButton("house");
+        houseButton.setEnabled(true);
+        houseButton.setBounds(100,280,240,240);
+        houseButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
+        ImageIcon buttonEnergy = new ImageIcon("casa.png"); //Get Image
+        houseButton.setIcon(new ImageIcon(buttonEnergy.getImage().getScaledInstance(houseButton.getWidth(), houseButton.getHeight(),Image.SCALE_SMOOTH))); //Insert image in the button with the size of the button 
+        houseButton.setBackground(Color.WHITE);
+        panel.add(houseButton);
         
-        JButton waterButton = new JButton("agua");
-        waterButton.setEnabled(true);
-        waterButton.setBounds(400,300,200,200);
-        waterButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
-        ImageIcon buttonImage = new ImageIcon("agua.png"); //Get Image
-        waterButton.setIcon(new ImageIcon(buttonImage.getImage().getScaledInstance(waterButton.getWidth(), waterButton.getHeight(),Image.SCALE_SMOOTH))); //Insert image in the button with the size of the button 
-        waterButton.setBackground(Color.lightGray);
-        panel.add(waterButton);
+        JButton factoryButton = new JButton("Factory");
+        factoryButton.setEnabled(true);
+        factoryButton.setBounds(400,280,240,240);
+        factoryButton.setBorder(BorderFactory.createEmptyBorder()); //Border of image
+        ImageIcon buttonImage = new ImageIcon("fabrica.png"); //Get Image
+        factoryButton.setIcon(new ImageIcon(buttonImage.getImage().getScaledInstance(factoryButton.getWidth(), factoryButton.getHeight(),Image.SCALE_SMOOTH))); //Insert image in the button with the size of the button 
+        factoryButton.setBackground(Color.WHITE);
+        panel.add(factoryButton);
                       
-        eventaction(waterButton);
-        eventaction(energyButton);
+        eventaction(factoryButton);
+        eventaction(houseButton);
 
     }
     private void eventaction(JButton button){
