@@ -112,7 +112,6 @@ public class ChoseWindow extends JFrame{
                 String nameButton=(button.getActionCommand());
                 Control_Meter control = new Control_Meter();
                 control.thirdWindow(nameButton);
-
             }
         };
         button.addActionListener(actlistener); //Add to act listener to the button

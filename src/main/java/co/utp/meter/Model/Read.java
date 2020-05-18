@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.utp.meter.Model;
 
 import java.io.BufferedReader;
@@ -12,14 +7,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Sebastian
- */ 
 public class Read {
     
     public void readFile() throws FileNotFoundException, IOException{ //Declarated Exceptions
-        File archivo = new File("D:\\Documents\\NetBeansProjects\\Meter\\ejemplo_progra.txt"); //Read file, you have to write here the direction where you have the txt
+        File archivo = new File("ejemplo_progra.txt"); //Read file, you have to write here the direction where you have the txt
         FileReader fr = new FileReader(archivo);
         BufferedReader bf = new BufferedReader(fr);
         String linea;
