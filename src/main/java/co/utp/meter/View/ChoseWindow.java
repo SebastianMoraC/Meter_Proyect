@@ -111,11 +111,19 @@ public class ChoseWindow extends JFrame{
             public void actionPerformed(ActionEvent e) {//You have to write hear that you want to happend whe you use the button
                 String nameButton=(button.getActionCommand());
                 Control_Meter control = new Control_Meter();
-                control.secondWindow(nameButton);
+                control.thirdWindow(nameButton);
+
             }
         };
         button.addActionListener(actlistener); //Add to act listener to the button
         
+    }
+    public void thirdWindow(){
+        TemporalityWindow window = new TemporalityWindow();
+        window.startComponents();
+    }
+    public void closeWindow(){
+
     }
 
 }

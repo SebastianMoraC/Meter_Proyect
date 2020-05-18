@@ -19,13 +19,15 @@ import javax.swing.WindowConstants;
 
 public class Meter_View extends JFrame{
     private static volatile Meter_View instance = null;
+    private  ChoseWindow view;
 
     public JPanel panel;    
 
     private Meter_View(){}
 
     
-    private  static void createInstance()
+    private  static void createInstance(
+    )
     {
         Meter_View instance = Meter_View.instance;
         if(instance==null)
@@ -48,6 +50,7 @@ public class Meter_View extends JFrame{
         return getInstance();
     }
     public void init(){
+        this.view = new ChoseWindow();
         this.setSize(700,600);
         this.setLocationRelativeTo(null); //Centra la ventana en la pantalla
         this.setTitle("WaE Meter Consumption");
@@ -121,11 +124,20 @@ public class Meter_View extends JFrame{
         
     }
     public void secondWindow(){
-        ChoseWindow window = new ChoseWindow();
+
+        view.startComponents();
+    }
+    public void thirdWindow(){
+        TemporalityWindow window = new TemporalityWindow();
         window.startComponents();
     }
     public void closeWindow(){
         this.setVisible(false);
+
+    }
+    public void closeSecondWindow(){
+       
+        view.setVisible(false);
 
     }
 

@@ -11,25 +11,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class Temporality_View extends JFrame{
-    private static Temporality_View instance=null;
+public class TemporalityWindow extends JFrame{
+    private static TemporalityWindow instance=null;
     public JPanel panel;
     
-    public Temporality_View(){}
+    public TemporalityWindow(){}
     private  static void createInstance()
     {
         if(instance==null)
         {
-            synchronized(Temporality_View.class){
-                if(instance==null) instance= new Temporality_View();
+            synchronized(TemporalityWindow.class){
+                if(instance==null) instance= new TemporalityWindow();
             }
         }
     }
-    public static Temporality_View getInstance() 
+    public static TemporalityWindow getInstance() 
     {
         return instance;
     }
-    public static Temporality_View setInstance() 
+    public static TemporalityWindow setInstance() 
     {
         if(instance == null) {
             createInstance();
@@ -63,6 +63,7 @@ public class Temporality_View extends JFrame{
     public void panels(){
         panel= new JPanel();
         panel.setLayout(null);
+        panel.setBackground(Color.WHITE); //Set the color in the panel
         this.getContentPane().add(panel);//agregar el panel a la ventana
     }
     

@@ -43,12 +43,10 @@ public class Control_Meter {
         this.view.closeWindow();
         this.view.secondWindow();
     }
-   /* public void thirdWindow(String button){
-        Fabrica consumo = new Fabrica();
-        Conexion opcion = consumo.GetConexion(button);
-        this.view.closeWindow();
-        this.view.secondWindow();
-    }*/
+    public void thirdWindow(String button){
+        this.view.closeSecondWindow();
+        this.view.thirdWindow();
+    }
     
     
        
