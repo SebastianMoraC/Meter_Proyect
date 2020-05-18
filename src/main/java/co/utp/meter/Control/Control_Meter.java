@@ -1,5 +1,7 @@
 package co.utp.meter.Control;
 
+import co.utp.meter.Control.Fabrica.Conexion;
+import co.utp.meter.Control.Fabrica.Fabrica;
 import co.utp.meter.Model.Meter_Model;
 import co.utp.meter.View.Meter_View;
 
@@ -8,7 +10,7 @@ public class Control_Meter {
     private final Meter_View view;
     private Meter_Model model;
     
-    private Control_Meter(){
+    public Control_Meter(){
         this.view = Meter_View.setInstance();
     }
     private  static void createInstance()
@@ -35,5 +37,12 @@ public class Control_Meter {
     public void build(){
         this.view.startComponents();
     }
+    public void secondWindow(String button){
+        Fabrica consumo = new Fabrica();
+        Conexion opcion = consumo.GetConexion(button);
+        this.view.closeWindow();
+        this.view.secondWindow();
+    }
+    
        
 }
