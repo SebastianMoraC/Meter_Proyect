@@ -3,6 +3,9 @@ package co.utp.meter.View;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -11,9 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class TemporalityWindow extends JFrame{
+public class TemporalityWindow extends JFrame implements Observable<ModeloObserver>{
     private static TemporalityWindow instance=null;
     public JPanel panel;
+    private ArrayList<ModeloObserver> observadores;
+    private String query;
+    
+
     
     public TemporalityWindow(){}
     private  static void createInstance()
@@ -50,8 +57,13 @@ public class TemporalityWindow extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
-    
-    public void startComponents(){
+    public void initObserver(){
+        query="";
+        observadores = new ArrayList<ModeloObserver>();
+
+    }
+    public void startComponents(String button){
+        query = button;
         init();
         panels();
         buttons();
@@ -113,12 +125,59 @@ public class TemporalityWindow extends JFrame{
         monthButton.setBackground(Color.WHITE);
         panel.add(monthButton);
                         
-        //eventaction(dayButton);
-        //eventaction(hourButton);
-        //eventaction(weekButton);
-        //eventaction(monthButton);
+        eventaction(dayButton);
+        eventaction(hourButton);
+        eventaction(weekButton);
+        eventaction(monthButton);
+
+    }
+    private void eventaction(JButton button){
+        ActionListener actlistener = new ActionListener(){ //But when you go to use a interface you have to instancied acion listener
+            @Override
+            public void actionPerformed(ActionEvent e) {//You have to write hear that you want to happend whe you use the button
+                String nameButton=(button.getActionCommand());
+                query = query + nameButton;
+                notificarObservadores(query);
+                
+            }
+        };
+        button.addActionListener(actlistener); //Add to act listener to the button
+        
     }
     
     
     
+    @Override
+    public void addObservador(ModeloObserver t) {
+       
+        //Añadimos el observador a nuestro arraylist
+        observadores.add(t);
+        
+        //Notificamos el valor a nuestros observadores ya que tenemos un nuevo observador que necesita saber el valor.
+        notificarObservadores(query);
+    }
+
+    /**
+     * removeObservador: Borra observadores a nuestro modelo
+     * @param t : observador que queramos borrar.
+     */
+    //**En realidad no vamos a emplear en nuestro ejemplo este metodo, pero es importante tenerlo en cuenta.
+    @Override
+    public void removeObservador(ModeloObserver t) {
+        observadores.remove(t);
+    }
+    
+    /**
+     * Método que notifica a nuestros observadores los cambios que nos interese que sepan.
+     * @param t : estado del valor del numero.
+     */
+    private void notificarObservadores(String  t) {
+        //Nos recorremos el arraylist de los observadores
+        for(ModeloObserver o : observadores){
+            //Le a cada observador que el valor se ha cambiado al nuevo valor "t".
+            //Recuerdo que para este caso, estamos notificando a cada vista que tengamos, el nuevo valor que tiene el numero, para que estas modifiquen su JLabel como output de la logica.
+            o.valorCambiado(t);
+        }
+    }
+   
 }

@@ -4,14 +4,18 @@ import co.utp.meter.Control.Fabrica.Conexion;
 import co.utp.meter.Control.Fabrica.Fabrica;
 import co.utp.meter.Model.Meter_Model;
 import co.utp.meter.View.Meter_View;
+import co.utp.meter.View.TemporalityWindow;
 
 public class Control_Meter {
     private static Control_Meter instance = null;
     private final Meter_View view;
-    private Meter_Model model;
+    public Meter_Model model;
+    public String query;
     
     public Control_Meter(){
         this.view = Meter_View.setInstance();
+        this.model = Meter_Model.setInstance();
+
     }
     private  static void createInstance()
     {
@@ -35,17 +39,26 @@ public class Control_Meter {
         return getInstance();
     }
     public void build(){
+        
         this.view.startComponents();
     }
     public void secondWindow(String button){
+        query = button;
         Fabrica consumo = new Fabrica();
         Conexion opcion = consumo.GetConexion(button);
         this.view.closeWindow();
-        this.view.secondWindow();
+        this.view.secondWindow(button);
     }
     public void thirdWindow(String button){
+        TemporalityWindow window = TemporalityWindow.setInstance();
+        window.initObserver();
+        window.addObservador(model);
         this.view.closeSecondWindow();
-        this.view.thirdWindow();
+        window.startComponents(button);
+    }
+    public void modelo(){
+        this.model.getChange();
+                
     }
     
     

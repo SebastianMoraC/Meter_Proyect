@@ -20,7 +20,7 @@ import javax.swing.WindowConstants;
 public class Meter_View extends JFrame{
     private static volatile Meter_View instance = null;
     private  ChoseWindow view;
-
+    public TemporalityWindow window;
     public JPanel panel;    
 
     private Meter_View(){}
@@ -123,13 +123,11 @@ public class Meter_View extends JFrame{
         button.addActionListener(actlistener); //Add to act listener to the button
         
     }
-    public void secondWindow(){
-
-        view.startComponents();
+    public void secondWindow(String button){
+        view.startComponents(button);
     }
-    public void thirdWindow(){
-        TemporalityWindow window = new TemporalityWindow();
-        window.startComponents();
+    public void thirdWindow(String button){
+        window.startComponents(button);
     }
     public void closeWindow(){
         this.setVisible(false);

@@ -20,7 +20,8 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class ChoseWindow extends JFrame{
     private static volatile ChoseWindow instance = null;
 
-    public JPanel panel;    
+    public JPanel panel; 
+    private String query;
 
     public ChoseWindow(){}
 
@@ -58,7 +59,8 @@ public class ChoseWindow extends JFrame{
         this.setVisible(true);
     }
     
-     public void startComponents(){
+     public void startComponents(String button){
+        query=button;
         init();
         panels();
         buttons();
@@ -110,19 +112,14 @@ public class ChoseWindow extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {//You have to write hear that you want to happend whe you use the button
                 String nameButton=(button.getActionCommand());
+                query = query + nameButton;
                 Control_Meter control = new Control_Meter();
-                control.thirdWindow(nameButton);
+                control.thirdWindow(query);
             }
         };
         button.addActionListener(actlistener); //Add to act listener to the button
         
     }
-    public void thirdWindow(){
-        TemporalityWindow window = new TemporalityWindow();
-        window.startComponents();
-    }
-    public void closeWindow(){
-
-    }
+    
 
 }
