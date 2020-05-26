@@ -3,6 +3,7 @@ package co.utp.meter.View;
 import co.utp.meter.Control.Control_Meter;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,8 @@ public class Meter_View extends JFrame{
     private  ChoseWindow view;
     public TemporalityWindow window;
     public JPanel panel;    
+    
+    public graphicView view2;
 
     private Meter_View(){}
 
@@ -51,6 +54,8 @@ public class Meter_View extends JFrame{
     }
     public void init(){
         this.view = new ChoseWindow();
+        this.window = TemporalityWindow.setInstance();
+        this.view2 = graphicView.setInstance();
         this.setSize(700,600);
         this.setLocationRelativeTo(null); //Centra la ventana en la pantalla
         this.setTitle("WaE Meter Consumption");
@@ -137,6 +142,19 @@ public class Meter_View extends JFrame{
        
         view.setVisible(false);
 
+    }
+    public void closeThirdWindow(){
+        window.setVisible(false);
+        System.out.println("-------");
+        graphicView();
+    }
+    public void graphicView(){
+        EventQueue.invokeLater(() -> {
+            var ex = this.view2;
+            ex.setVisible(true);
+            ex.initUI();
+
+        });
     }
 
 }

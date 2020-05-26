@@ -2,6 +2,10 @@ package co.utp.meter.Model;
 
 import co.utp.meter.View.ModeloObserver;
 import co.utp.meter.View.Observable;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import org.jfree.chart.ChartPanel;
 
 public class Meter_Model implements ModeloObserver{
     private static Meter_Model instance=null;
@@ -30,11 +34,7 @@ public class Meter_Model implements ModeloObserver{
         return getInstance();
     }
         
-        public void readFile(){
-
-        Read prueba = new Read();
-        prueba.readFile2();
-        }
+    
     @Override
     public void valorCambiado(String temporality) {
         //Nos llega el valor cambiado del modelo, que es el estado que nos interesa para cambiar la vista.

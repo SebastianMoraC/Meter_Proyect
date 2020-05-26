@@ -1,5 +1,6 @@
 package co.utp.meter.View;
 
+import co.utp.meter.Control.Control_Meter;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -126,10 +127,9 @@ public class TemporalityWindow extends JFrame implements Observable<ModeloObserv
         panel.add(monthButton);
                         
         eventaction(dayButton);
-        eventaction(hourButton);
         eventaction(weekButton);
         eventaction(monthButton);
-
+           
     }
     private void eventaction(JButton button){
         ActionListener actlistener = new ActionListener(){ //But when you go to use a interface you have to instancied acion listener
@@ -138,7 +138,8 @@ public class TemporalityWindow extends JFrame implements Observable<ModeloObserv
                 String nameButton=(button.getActionCommand());
                 query = query + nameButton;
                 notificarObservadores(query);
-                
+                Control_Meter control = new Control_Meter();
+                control.modelo();
             }
         };
         button.addActionListener(actlistener); //Add to act listener to the button

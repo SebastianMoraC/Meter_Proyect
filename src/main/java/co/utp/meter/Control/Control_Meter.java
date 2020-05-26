@@ -5,6 +5,7 @@ import co.utp.meter.Control.Fabrica.Fabrica;
 import co.utp.meter.Model.Meter_Model;
 import co.utp.meter.View.Meter_View;
 import co.utp.meter.View.TemporalityWindow;
+import java.awt.EventQueue;
 
 public class Control_Meter {
     private static Control_Meter instance = null;
@@ -57,9 +58,10 @@ public class Control_Meter {
         window.startComponents(button);
     }
     public void modelo(){
-        this.model.getChange();
+         view.closeThirdWindow();
                 
     }
+    
     
     
        
