@@ -145,8 +145,7 @@ public class Meter_View extends JFrame{
     }
     public void closeThirdWindow(){
         window.setVisible(false);
-        System.out.println("-------");
-        graphicView();
+        //graphicView();
     }
     public void graphicView(){
         EventQueue.invokeLater(() -> {
@@ -154,7 +153,7 @@ public class Meter_View extends JFrame{
             ex.setVisible(true);
             ex.initUI();
 
-        });
+        }); 
     }
 
 }

@@ -2,6 +2,7 @@ package co.utp.meter.Control;
 
 import co.utp.meter.Control.Fabrica.Conexion;
 import co.utp.meter.Control.Fabrica.Fabrica;
+import co.utp.meter.Model.Fabrica.Fabrica2;
 import co.utp.meter.Model.Meter_Model;
 import co.utp.meter.View.Meter_View;
 import co.utp.meter.View.TemporalityWindow;
@@ -59,10 +60,12 @@ public class Control_Meter {
     }
     public void modelo(){
          view.closeThirdWindow();
+   
+         model.graph();
                 
     }
-    
-    
-    
+    public void graph(){
        
+        view.graphicView();   
+    }         
 }

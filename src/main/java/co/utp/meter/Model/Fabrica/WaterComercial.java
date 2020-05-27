@@ -9,6 +9,9 @@ package co.utp.meter.Model.Fabrica;
  *
  * @author Sebastian
  */
-public class WaterComercial {
-    
+public class WaterComercial implements Conexion{
+    @Override
+    public void graficar(int number){
+        
+    }
 }

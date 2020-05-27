@@ -1,5 +1,7 @@
 package co.utp.meter.Model;
 
+import co.utp.meter.Model.Fabrica.Conexion;
+import co.utp.meter.Model.Fabrica.Fabrica2;
 import co.utp.meter.View.ModeloObserver;
 import co.utp.meter.View.Observable;
 import java.awt.Color;
@@ -42,7 +44,10 @@ public class Meter_Model implements ModeloObserver{
         texto = temporality;
         System.out.println(temporality );
     }
-    public void getChange(){
+    public void graph(){
+        Fabrica2 grafica = new Fabrica2();
+        Conexion opcion = grafica.getConexion(texto);
+        
     }
             
            

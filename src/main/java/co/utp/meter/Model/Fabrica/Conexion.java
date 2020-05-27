@@ -10,5 +10,5 @@ package co.utp.meter.Model.Fabrica;
  * @author Sebastian
  */
 public interface Conexion {
-    
+    void graficar(int number);
 }
