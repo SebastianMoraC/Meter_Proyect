@@ -64,8 +64,8 @@ public class Control_Meter {
          model.graph();
                 
     }
-    public void graph(String link, int tiempo){
+    public void graph(String link, int tiempo, String name){
        
-        view.graphicView(link, tiempo);   
+        view.graphicView(link, tiempo,name);   
     }         
 }

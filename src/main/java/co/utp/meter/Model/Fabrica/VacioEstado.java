@@ -12,6 +12,7 @@ package co.utp.meter.Model.Fabrica;
 public class VacioEstado implements Conexion{
     public int number;
     public String link;
+    public String name;
     public VacioEstado(int number, String link){
         this.number = number;
         this.link = link;
@@ -23,5 +24,9 @@ public class VacioEstado implements Conexion{
     @Override
     public String link(){
            return link;
+    }
+    @Override
+    public String name(){
+           return name;
     }
 }

@@ -13,9 +13,11 @@ public class WaterResidential implements Conexion{
     
     public int number;
     public String link;
-    public WaterResidential(int number, String link){
+    public String name;
+    public WaterResidential(int number, String link, String name){
         this.number = number;
         this.link = link;
+        this.name = name;
     }
     @Override
     public int tiempo(){
@@ -24,5 +26,9 @@ public class WaterResidential implements Conexion{
     @Override
     public String link(){
            return link;
+    }
+    @Override
+    public String name(){
+           return name;
     }
 }

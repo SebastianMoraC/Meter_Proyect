@@ -12,4 +12,5 @@ package co.utp.meter.Model.Fabrica;
 public interface Conexion {
     int tiempo();
     String link ();
+    String name();
 }

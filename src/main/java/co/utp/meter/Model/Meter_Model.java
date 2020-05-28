@@ -39,16 +39,16 @@ public class Meter_Model implements ModeloObserver{
         //Nos llega el valor cambiado del modelo, que es el estado que nos interesa para cambiar la vista.
         //Actuamos en consecuencia de ese valor que nos ha llegado del modelo, actualizando el texto(JLabel) de nuestra vista.
         texto = temporality;
-        System.out.println(temporality );
     }
     public void graph(){
         Fabrica2 grafica = new Fabrica2();
         Conexion opcion = grafica.getConexion(texto);
         String link = opcion.link();
+        String name = opcion.name();
         int tiempo = opcion.tiempo();
         System.out.println(tiempo + link);
         Control_Meter control = Control_Meter.getInstance();
-        control.graph(link,tiempo);
+        control.graph(link,tiempo,name);
     }
             
            

@@ -147,11 +147,11 @@ public class Meter_View extends JFrame{
         window.setVisible(false);
         //graphicView();
     }
-    public void graphicView(String link, int tiempo){
+    public void graphicView(String link, int tiempo,String name){
         EventQueue.invokeLater(() -> {
             var ex = this.view2;
             ex.setVisible(true);
-            ex.initUI(link, tiempo);
+            ex.initUI(link, tiempo,name);
 
         }); 
     }

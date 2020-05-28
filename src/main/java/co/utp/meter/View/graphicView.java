@@ -44,14 +44,14 @@ public class graphicView extends JFrame {
 
    
 
-    public void initUI(String link, int tiempo) {
+    public void initUI(String link, int tiempo,String name) {
         Ventana window = new Ventana();
-        ChartPanel panel = window.graficarXY(link,tiempo);
+        ChartPanel panel = window.graficarXY(link,tiempo,name);
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         panel.setBackground(Color.white);
         add(panel);
         pack();
-        setTitle("Consumo de Energía");
+        setTitle(name);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

@@ -34,11 +34,10 @@ public class Ventana {
     static File archivo;
     static FileReader archivoLector;
 
-    public ChartPanel graficarXY(String link, int tempo ) {
+    public ChartPanel graficarXY(String link, int tempo,String name ) {
         
         try {
             direccion = link;
-            System.out.println(tempo);
             archivo =new File(direccion);
             int cont = 0;
             float ejeyacum = 0;
@@ -51,15 +50,13 @@ public class Ventana {
                     ejex = linea.split(",");
                     ejey = linea.split(",");
                     cont++;
-                    System.out.println("jola");
                     ejeyacum = Float.parseFloat(ejey[1]) + ejeyacum;
-                    System.out.println("Hola");
                 } else  {
+                    System.out.println(cont);
                     ejeyacum = ejeyacum / tempo;
                     cont = 0;
                     y.add(ejeyacum);
                     ejex[0] = ejex[0].substring(0,10);
-                    System.out.println(ejex[0]);
                     x.add(ejex[0]);
                     ejeyacum = 0;
                 }
@@ -76,7 +73,7 @@ public class Ventana {
             dataset.setValue(y.get(i), "Consume",x.get(i));
         }
         
-        JFreeChart barchart = ChartFactory.createBarChart("Consumo Energia Comercial en Horas", "", "Consumo", dataset,PlotOrientation.VERTICAL,false,true,false);
+        JFreeChart barchart = ChartFactory.createBarChart(name, "", "Consumo", dataset,PlotOrientation.VERTICAL,false,true,false);
         ChartPanel panel = new ChartPanel(barchart);
         return panel;
     }

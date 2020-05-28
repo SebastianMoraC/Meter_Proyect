@@ -129,7 +129,7 @@ public class TemporalityWindow extends JFrame implements Observable<ModeloObserv
         eventaction(dayButton);
         eventaction(weekButton);
         eventaction(monthButton);
-           
+        eventaction(hourButton);
     }
     private void eventaction(JButton button){
         ActionListener actlistener = new ActionListener(){ //But when you go to use a interface you have to instancied acion listener

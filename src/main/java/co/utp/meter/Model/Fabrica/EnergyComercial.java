@@ -12,9 +12,11 @@ package co.utp.meter.Model.Fabrica;
 public class EnergyComercial implements Conexion{
     public int number;
     public String link;
-    public EnergyComercial(int number, String link){
+    public String name;
+    public EnergyComercial(int number, String link, String name){
         this.number = number;
         this.link = link;
+        this.name = name;
         
     }
     @Override
@@ -24,5 +26,9 @@ public class EnergyComercial implements Conexion{
     @Override
     public String link(){
            return link;
+    }
+    @Override
+    public String name(){
+           return name;
     }
 }
