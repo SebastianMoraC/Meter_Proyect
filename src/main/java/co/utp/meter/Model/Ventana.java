@@ -56,7 +56,9 @@ public class Ventana {
                     ejeyacum = ejeyacum / tempo;
                     cont = 0;
                     y.add(ejeyacum);
-                    ejex[0] = ejex[0].substring(0,10);
+                    if(tempo>1){
+                        ejex[0] = ejex[0].substring(0,10);
+                    }
                     x.add(ejex[0]);
                     ejeyacum = 0;
                 }
