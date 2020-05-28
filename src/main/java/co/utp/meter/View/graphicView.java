@@ -44,9 +44,9 @@ public class graphicView extends JFrame {
 
    
 
-    public void initUI() {
+    public void initUI(String link, int tiempo) {
         Ventana window = new Ventana();
-        ChartPanel panel = window.graficarXY();
+        ChartPanel panel = window.graficarXY(link,tiempo);
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         panel.setBackground(Color.white);
         add(panel);

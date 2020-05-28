@@ -1,13 +1,10 @@
 package co.utp.meter.Model;
 
+import co.utp.meter.Control.Control_Meter;
 import co.utp.meter.Model.Fabrica.Conexion;
 import co.utp.meter.Model.Fabrica.Fabrica2;
 import co.utp.meter.View.ModeloObserver;
-import co.utp.meter.View.Observable;
-import java.awt.Color;
-import javax.swing.BorderFactory;
-import javax.swing.JFrame;
-import org.jfree.chart.ChartPanel;
+
 
 public class Meter_Model implements ModeloObserver{
     private static Meter_Model instance=null;
@@ -47,7 +44,11 @@ public class Meter_Model implements ModeloObserver{
     public void graph(){
         Fabrica2 grafica = new Fabrica2();
         Conexion opcion = grafica.getConexion(texto);
-        
+        String link = opcion.link();
+        int tiempo = opcion.tiempo();
+        System.out.println(tiempo + link);
+        Control_Meter control = Control_Meter.getInstance();
+        control.graph(link,tiempo);
     }
             
            

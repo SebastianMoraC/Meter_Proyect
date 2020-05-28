@@ -28,28 +28,45 @@ public class Ventana {
     static String linea = "";
     static String ejex[];
     static String ejey[];
-    static ArrayList<Integer> y = new ArrayList();
+    static ArrayList<Float> y = new ArrayList();
     static ArrayList<String> x = new ArrayList();
-    static int cont=0;
-    static File archivo = new File("E:\\Desktop\\UNIVERSIDAD\\2020 -1\\ConsumoEnergiaComercial.csv");
+    static String direccion;
+    static File archivo;
     static FileReader archivoLector;
-    public ChartPanel graficarXY(){
-        try{
+
+    public ChartPanel graficarXY(String link, int tempo ) {
+        
+        try {
+            direccion = link;
+            System.out.println(tempo);
+            archivo =new File(direccion);
+            int cont = 0;
+            float ejeyacum = 0;
             archivoLector = new FileReader(archivo);
             BufferedReader buffer = new BufferedReader(archivoLector);
-            while(buffer.ready())
-            {
-                if(!(linea=buffer.readLine()).equals("\000")){ //
+            while (buffer.ready()) {
+                
+                if (!(linea = buffer.readLine()).equals("\000") && (cont+1)<=tempo) {
+
                     ejex = linea.split(",");
                     ejey = linea.split(",");
-                   
-                    y.add(Integer.parseInt(ejey[1]));
-                    x.add(ejex[0]);
                     cont++;
-                    } 
+                    System.out.println("jola");
+                    ejeyacum = Float.parseFloat(ejey[1]) + ejeyacum;
+                    System.out.println("Hola");
+                } else  {
+                    ejeyacum = ejeyacum / tempo;
+                    cont = 0;
+                    y.add(ejeyacum);
+                    ejex[0] = ejex[0].substring(0,10);
+                    System.out.println(ejex[0]);
+                    x.add(ejex[0]);
+                    ejeyacum = 0;
+                }
+
             }
-            
-        }
+
+        } 
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Unknown File");
 

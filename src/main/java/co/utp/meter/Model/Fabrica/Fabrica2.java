@@ -12,55 +12,55 @@ package co.utp.meter.Model.Fabrica;
 public class Fabrica2 {
     public Conexion getConexion(String estado){
         if(estado.equalsIgnoreCase("energyFactoryMonth")){
-                return new EnergyComercial();
+                return new EnergyComercial(744,"ConsumoEnergiaComercial.csv");
             }         
         else if(estado.equalsIgnoreCase("energyFactoryWeek")){
-                return new EnergyComercial();
+                return new EnergyComercial(168,"ConsumoEnergiaComercial.csv");
         }
         else if(estado.equalsIgnoreCase("energyFactoryDay")){
-                return new EnergyComercial();
+                return new EnergyComercial(24,"ConsumoEnergiaComercial.csv");
         }
         else if(estado.equalsIgnoreCase("energyFactoryHour")){
-                return new EnergyComercial();
+                return new EnergyComercial(1,"ConsumoEnergiaComercial.csv");
         }
         else if(estado.equalsIgnoreCase("energyhouseMonth")){
-               return new EnergyResidential();
+               return new EnergyResidential(744,"ConsumoEnergiaResidencial.csv");
         }
          else if(estado.equalsIgnoreCase("energyhouseWeek")){
-               return new EnergyResidential();
+               return new EnergyResidential(168,"ConsumoEnergiaResidencial.csv");
         }
         else if(estado.equalsIgnoreCase("energyhouseDay")){
-               return new EnergyResidential();
+               return new EnergyResidential(24,"ConsumoEnergiaResidencial.csv");
         }
         else if(estado.equalsIgnoreCase("energyhouseHour")){
-               return new EnergyResidential();
+               return new EnergyResidential(1,"ConsumoEnergiaResidencial.csv");
         }
         
         else if(estado.equalsIgnoreCase("aguaFactoryMonth")){
-                return new WaterComercial();
+                return new WaterComercial(744,"ConsumoAguaComercial.csv");
         }
         else if(estado.equalsIgnoreCase("aguaFactoryWeek")){
-                return new WaterComercial();
+                return new WaterComercial(168,"ConsumoAguaComercial.csv");
         }
         else if(estado.equalsIgnoreCase("aguaFactoryDay")){
-                return new WaterComercial();
+                return new WaterComercial(24,"ConsumoAguaComercial.csv");
         }
         else if(estado.equalsIgnoreCase("aguaFactoryHour")){
-                return new WaterComercial();
+                return new WaterComercial(1,"ConsumoAguaComercial.csv");
         }
         else if(estado.equalsIgnoreCase("aguahouseMonth")){
-                return new WaterResidential();
+                return new WaterResidential(744,"ConsumoAguaResidencial.csv");
         }
          else if(estado.equalsIgnoreCase("aguahouseWeek")){
-                return new WaterResidential();
+                return new WaterResidential(168,"ConsumoAguaResidencial.csv");
         }
         else if(estado.equalsIgnoreCase("aguahouseDay")){
-                return new WaterResidential();
+                return new WaterResidential(24,"ConsumoAguaResidencial.csv");
         }
         else if(estado.equalsIgnoreCase("aguahouseHour")){
-                return new WaterResidential();
+                return new WaterResidential(1,"ConsumoAguaResidencial.csv");
         }
-        return new VacioEstado();
+        return new VacioEstado(0,"");
     }
     
 }

@@ -11,8 +11,18 @@ package co.utp.meter.Model.Fabrica;
  */
 public class WaterResidential implements Conexion{
     
+    public int number;
+    public String link;
+    public WaterResidential(int number, String link){
+        this.number = number;
+        this.link = link;
+    }
     @Override
-    public void graficar(int number){
-        
+    public int tiempo(){
+        return number;
+    }
+    @Override
+    public String link(){
+           return link;
     }
 }
