@@ -25,21 +25,25 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class Ventana {
     
-    static String linea = "";
-    static String ejex[];
-    static String ejey[];
-    static ArrayList<Float> y = new ArrayList();
-    static ArrayList<String> x = new ArrayList();
-    static String direccion;
-    static File archivo;
-    static FileReader archivoLector;
+    public String linea = "";
+    public String ejex[];
+    public String ejey[];
+    public ArrayList<Float> y = new ArrayList();
+    public ArrayList<String> x = new ArrayList();
+    public String direccion;
+    public File archivo;
+    public FileReader archivoLector;
 
     public ChartPanel graficarXY(String link, int tempo,String name ) {
         
         try {
+            int cont=0;
+            if(tempo==744){
+                cont=360;
+            }
+            
             direccion = link;
             archivo =new File(direccion);
-            int cont = 0;
             float ejeyacum = 0;
             archivoLector = new FileReader(archivo);
             BufferedReader buffer = new BufferedReader(archivoLector);
@@ -51,33 +55,41 @@ public class Ventana {
                     ejey = linea.split(",");
                     cont++;
                     ejeyacum = Float.parseFloat(ejey[1]) + ejeyacum;
-                } else  {
-                    System.out.println(cont);
-                    ejeyacum = ejeyacum / tempo;
+                } else  {    
+                    ejeyacum = ejeyacum;
                     cont = 0;
                     y.add(ejeyacum);
                     if(tempo>1){
                         ejex[0] = ejex[0].substring(0,10);
+                    }
+                    if(tempo==744){
+                        ejex[0] = ejex[0].substring(3,5);
                     }
                     x.add(ejex[0]);
                     ejeyacum = 0;
                 }
 
             }
+            
 
         } 
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Unknown File");
 
         }
-        var dataset = new DefaultCategoryDataset();
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         for (int i = 0; i < x.size(); i++) {
             dataset.setValue(y.get(i), "Consume",x.get(i));
         }
         
-        JFreeChart barchart = ChartFactory.createBarChart(name, "", "Consumo", dataset,PlotOrientation.VERTICAL,false,true,false);
+        JFreeChart barchart=barchart(name,dataset);
         ChartPanel panel = new ChartPanel(barchart);
         return panel;
+    }
+    public JFreeChart barchart(String name,DefaultCategoryDataset dataset){
+        JFreeChart barchart;
+        barchart = ChartFactory.createBarChart(name, "", "Consumo", dataset,PlotOrientation.VERTICAL,false,true,false);
+        return barchart;
     }
    
 }

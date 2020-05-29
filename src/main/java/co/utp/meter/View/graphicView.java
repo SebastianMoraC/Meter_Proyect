@@ -5,10 +5,16 @@
  */
 package co.utp.meter.View;
 
+import co.utp.meter.Control.Control_Meter;
+import co.utp.meter.Main;
 import co.utp.meter.Model.Ventana;
 import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 import org.jfree.chart.ChartPanel;
 
 /**
@@ -49,10 +55,18 @@ public class graphicView extends JFrame {
         ChartPanel panel = window.graficarXY(link,tiempo,name);
         panel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         panel.setBackground(Color.white);
-        add(panel);
-        pack();
-        setTitle(name);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.add(panel);
+        this.pack();
+        this.setTitle(name);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+	@Override
+	public void windowClosing(WindowEvent e) {
+               
+               Control_Meter meter = new Control_Meter();
+               meter.build();
+	}
+        });
     }
 }
